@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-from logic import check_serum
+from logic import check_serum, check_moisturizer 
 
 app = Flask(__name__)
 
@@ -17,4 +17,13 @@ def serum():
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
+    
+@app.route("/moisturizer", methods=["POST"])
+def moisturizer():
+    data = request.json
+    answer = data.get("answer")
+
+    result = check_moisturizer(answer)
+    return jsonify(result)
+
 

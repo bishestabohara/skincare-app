@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Skincare App - Serum</title>
+    <title>Skincare App</title>
 </head>
 <body>
 
 <h1>Skincare Checklist</h1>
 
-<p>Step 1: Serum</p>
+<p id="step">Step 1: Serum</p>
+<p id="message">Did you apply serum?</p>
 
-<button onclick="sendAnswer('y')">Yes</button>
-<button onclick="sendAnswer('n')">No</button>
-
-<p id="message"></p>
+<button id="yesBtn" onclick="sendSerum('y')">Yes</button>
+<button id="noBtn" onclick="sendSerum('n')">No</button>
 
 <script src="/static/script.js"></script>
 
