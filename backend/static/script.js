@@ -39,6 +39,37 @@ function sendMoisturizer(answer) {
     .then(res => res.json())
     .then(data => {
       document.getElementById("message").innerText = data.message;
+       if (answer === "y") {
+        showSunscreenStep();
+        console.log("Moisturizer answer:", answer);
+      }
+    })
+    .catch(err => console.error(err));
+}
+
+// UI transition to STEP 3
+function showSunscreenStep() {
+  document.getElementById("step").innerText = "Step 3: Sunscreen";
+  document.getElementById("message").innerText =
+    "Did you apply sunscreen?";
+
+  document.getElementById("yesBtn").onclick = () => sendSunscreen("y");
+  document.getElementById("noBtn").onclick = () => sendSunscreen("n");
+  console.log("Entered sunscreen step");
+
+}
+
+// STEP 3: SUNSCREEN
+function sendSunscreen(answer) {
+  fetch("/sunscreen", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ answer })
+  })
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("message").innerText = data.message;
+    
     })
     .catch(err => console.error(err));
 }
