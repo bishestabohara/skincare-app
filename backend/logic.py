@@ -21,3 +21,12 @@ def check_moisturizer(answer):
         return {"message": "Please apply moisturizer."}
     else:
         return {"message": "Invalid input."}
+    
+def check_sunscreen(answer):
+    if answer == "y":
+        return {"message": "Sunscreen applied. Skincare routine complete."}
+    elif answer == "n":
+        return {"message": "Please apply sunscreen."}
+    else:
+        return {"message": "Invalid input."}
+
